@@ -17,7 +17,7 @@ if __name__ == '__main__':
 
     Process(target=loop_key).start()
 
-    #Process(target=loop_camera).start()
+    Process(target=loop_camera).start()
 
 
 
