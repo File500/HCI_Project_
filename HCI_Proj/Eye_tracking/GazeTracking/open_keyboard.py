@@ -1,5 +1,4 @@
 from tkinter import *
-import keyboard
 import os
 
 def callback(event):
@@ -10,18 +9,16 @@ def callback(event):
 class KeyB(object):
 
     def initialise():
+        
         root = Tk()
         root.attributes('-fullscreen',True)
-        frame = Frame(root, width=100, height=100)
-        frame.pack(padx=100,pady=100)
-
-        addressInput = Entry(frame, font = "Verdana 20 ", justify="center")
-        addressInput.bind("<FocusIn>", callback)
-        addressInput.pack(padx=200,pady=200)
         
         button = Button(root, text="X", command=lambda: root.quit())
-        button.pack(ipadx=5,ipady=5,expand=True)
-        button.place(x=0,y=0)
+        button.pack(ipadx=8,ipady=8,expand=True, side=TOP, anchor=NE)
+
+        addressInput = Text(root, font = "Verdana 20 ", height=500)
+        addressInput.bind("<FocusIn>", callback)
+        addressInput.pack(padx=500,pady=500)
         
         root.mainloop()
         os.system('wmic process where name="TabTip.exe" delete')
