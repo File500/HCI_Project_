@@ -3,3 +3,7 @@ cmake
 numpy 
 opencv_python 
 dlib 
+pyautogui
+pygame
+keyboard
+mouse 
