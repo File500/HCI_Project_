@@ -1,3 +1,5 @@
+import mouse
+import time
 import pyautogui
 import keyboard
 import ctypes
@@ -14,12 +16,18 @@ class Camera(object):
         screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
         max_x = screensize[0]
         max_y = screensize[1]
+        rest_x = max_x / 2
+        rest_y = (max_y / 3)*2 
         
-        cursorX = max_x / 2
-        cursorY = max_y / 2
+        cursorX =  rest_x
+        cursorY = rest_y
         
-        sum_x = 326
-        sum_y = 204
+        sum_x = 327
+        sum_y = 208
+        up_down_lim = 265
+        right_left_lim = 340
+        
+        step = 10
 
         while True:
             # We get a new frame from the webcam
@@ -32,34 +40,30 @@ class Camera(object):
 
             left_pupil = gaze.pupil_left_coords()
             right_pupil = gaze.pupil_right_coords()
-            cv2.putText(frame, "Left pupil:  " + str(left_pupil), (90, 130), cv2.FONT_HERSHEY_DUPLEX, 0.9, (147, 58, 31), 1)
-            cv2.putText(frame, "Right pupil: " + str(right_pupil), (90, 165), cv2.FONT_HERSHEY_DUPLEX, 0.9, (147, 58, 31), 1)
-
-            '''
-            if(gaze.horizontal_ratio()):
-                looking_cord_x = max_x * gaze.horizontal_ratio()
-            if(gaze.vertical_ratio()):
-                looking_cord_y = max_y * gaze.vertical_ratio()
-            cv2.imshow("Demo", frame)
-
-            print("on screen pos x:", looking_cord_x, "on screen pos y:", looking_cord_y)
-            '''
+            
             if left_pupil and right_pupil:
                 sum_x = round((left_pupil[0] + right_pupil[0]) / 2)
                 sum_y = round((left_pupil[1] + right_pupil[1]) / 2)
                 
-            if sum_x > 327:
-                cursorX -= 8
-            elif sum_x < 327:
-                cursorX += 8
+            if sum_x > right_left_lim:
+                cursorX -= step
+            elif sum_x < right_left_lim:
+                cursorX += step
                 
-            if sum_y > 210:
-                cursorY += 8
-            elif sum_y < 210:
-                cursorY -= 8
+            if sum_y > up_down_lim:
+                cursorY += step
+            elif sum_y < up_down_lim:
+                cursorY -= step
                 
-            pyautogui.moveTo(cursorX,cursorY)   
-            #print('x', sum_x, 'y', sum_y)
+            
+            if cursorY > rest_y - 200 and cursorY < max_y and cursorX < max_x and cursorX > 0:
+                
+                pyautogui.moveTo(cursorX,cursorY)
+            else:
+                cursorX = rest_x
+                cursorY = rest_y
+               
+            
                       
             if(keyboard.is_pressed("esc")):
                 break
