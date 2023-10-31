@@ -1,4 +1,3 @@
-import keyboard
 from open_camera import Camera
 from open_keyboard import KeyB
 from multiprocessing import Process
