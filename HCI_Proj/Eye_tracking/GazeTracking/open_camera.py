@@ -19,7 +19,7 @@ class Camera(object):
         rest_x = max_x / 2
         rest_y = (max_y / 3)*2 
         
-        cursorX =  rest_x
+        cursorX = rest_x
         cursorY = rest_y
         
         sum_x = 327
@@ -27,7 +27,7 @@ class Camera(object):
         up_down_lim = 265
         right_left_lim = 340
         
-        step = 10
+        step = 8
 
         while True:
             # We get a new frame from the webcam
@@ -56,13 +56,15 @@ class Camera(object):
                 cursorY -= step
                 
             
-            if cursorY > rest_y - 200 and cursorY < max_y and cursorX < max_x and cursorX > 0:
+            if cursorY > rest_y and cursorY < max_y and cursorX < max_x and cursorX > 0:
                 
                 pyautogui.moveTo(cursorX,cursorY)
             else:
                 cursorX = rest_x
-                cursorY = rest_y
+                cursorY = rest_y + 200
                
+            if gaze.is_blinking():
+                mouse.click('left')
             
                       
             if(keyboard.is_pressed("esc")):

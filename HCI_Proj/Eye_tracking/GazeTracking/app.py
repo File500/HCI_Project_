@@ -1,3 +1,4 @@
+import keyboard
 from open_camera import Camera
 from open_keyboard import KeyB
 from multiprocessing import Process
@@ -15,7 +16,7 @@ def loop_camera():
 
 if __name__ == '__main__':
 
-    #Process(target=loop_key).start()
+    Process(target=loop_key).start()
 
     Process(target=loop_camera).start()
 
