@@ -31,12 +31,14 @@ class Camera(object):
         allow_blink = False
         
         step = 8
+        
+        pyautogui.FAILSAFE = False
 
         while True:
             
             global_timer_end = time.time()
             
-            if global_timer_end - global_timer_start > 3:
+            if global_timer_end - global_timer_start > 1.5:
                 allow_blink = True
             # We get a new frame from the webcam
             _, frame = webcam.read()
@@ -71,19 +73,19 @@ class Camera(object):
                 cursorX = rest_x
                 cursorY = rest_y + 200
                
-            if gaze.is_blinking() and allow_blink:
+            if gaze.is_blinking() and allow_blink: 
+                counter = 0
                 start = time.time()
                 end = time.time()
-                flag = True
                 
-                while end - start < 3:
-                    
-                    if gaze.is_blinking() and flag:
-                        mouse.click('left')
-                        flag = False
-                    
+                while end - start < 1 and gaze.is_blinking():
+                    counter += 1
                     end = time.time()
+                
+                if counter > 1230000:
+                    mouse.click('left')
                     
+                #print(counter)                          
                 allow_blink = False
                 global_timer_start = time.time()
             
