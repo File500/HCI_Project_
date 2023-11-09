@@ -78,7 +78,7 @@ class Camera(object):
             '''
             pyautogui.moveTo(cursorX,cursorY)
             
-            if gaze.is_blinking() and allow_blink and 1==0: 
+            if gaze.is_blinking() and allow_blink: 
                 counter = 0
                 flag_success = 0
                 start = time.time()
