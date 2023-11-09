@@ -24,13 +24,13 @@ class Camera(object):
         
         sum_x = 327
         sum_y = 208
-        up_down_lim = 195 #210 for camera up and key down, 195 for free roam
+        up_down_lim = 196 #210 for camera up and key down, 195 for free roam
         right_left_lim = 335 #320 for camera up and key down, 335 for free roam 
         
         global_timer_start = time.time()
         allow_blink = False
         
-        step = 15
+        step = 10
         
         moving_boundry = 620000
         error_rate = 400
@@ -48,8 +48,6 @@ class Camera(object):
 
             # We send this frame to GazeTracking to analyze it
             gaze.refresh(frame)
-
-            frame = gaze.annotated_frame()
 
             left_pupil = gaze.pupil_left_coords()
             right_pupil = gaze.pupil_right_coords()
