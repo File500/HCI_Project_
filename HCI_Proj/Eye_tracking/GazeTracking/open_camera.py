@@ -24,13 +24,13 @@ class Camera(object):
         
         sum_x = 327
         sum_y = 208
-        up_down_lim = 210
-        right_left_lim = 320
+        up_down_lim = 195 #210 for camera up and key down, 195 for free roam
+        right_left_lim = 335 #320 for camera up and key down, 335 for free roam 
         
         global_timer_start = time.time()
         allow_blink = False
         
-        step = 6
+        step = 15
         
         moving_boundry = 620000
         error_rate = 400
@@ -68,15 +68,17 @@ class Camera(object):
             elif sum_y < up_down_lim:
                 cursorY -= step
                 
-            
+            '''
             if cursorY > rest_y and cursorY < max_y and cursorX < max_x and cursorX > 0:
                 
                 pyautogui.moveTo(cursorX,cursorY)
             else:
                 cursorX = rest_x
                 cursorY = rest_y + 200
-               
-            if gaze.is_blinking() and allow_blink: 
+            '''
+            pyautogui.moveTo(cursorX,cursorY)
+            
+            if gaze.is_blinking() and allow_blink and 1==0: 
                 counter = 0
                 flag_success = 0
                 start = time.time()
