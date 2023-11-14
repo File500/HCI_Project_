@@ -17,24 +17,23 @@ class Camera(object):
         max_x = screensize[0]
         max_y = screensize[1]
         rest_x = max_x / 2
-        rest_y = (max_y / 3)*2 
+        rest_y = max_y / 2 
         
         cursorX = rest_x
         cursorY = rest_y
         
         sum_x = 327
         sum_y = 208
-        up_down_lim = 196 #210 for camera up and key down, 195 for free roam
-        right_left_lim = 335 #320 for camera up and key down, 335 for free roam 
+        up_down_lim = 192 
+        right_left_lim = 330 
         
         global_timer_start = time.time()
         allow_blink = False
         
-        step = 10
+        step = 8
         
-        moving_boundry = 620000
-        error_rate = 400
-        
+        blinking_lim = 1
+                
         pyautogui.FAILSAFE = False
 
         while True:
@@ -66,41 +65,23 @@ class Camera(object):
             elif sum_y < up_down_lim:
                 cursorY -= step
                 
-            '''
-            if cursorY > rest_y and cursorY < max_y and cursorX < max_x and cursorX > 0:
-                
-                pyautogui.moveTo(cursorX,cursorY)
-            else:
-                cursorX = rest_x
-                cursorY = rest_y + 200
-            '''
             pyautogui.moveTo(cursorX,cursorY)
-            
+    
             if gaze.is_blinking() and allow_blink: 
-                counter = 0
-                flag_success = 0
                 start = time.time()
                 end = time.time()
                 
-                while end - start < 0.5 and gaze.is_blinking():
-                    counter += 1
+                while end - start < blinking_lim and gaze.is_blinking():
                     end = time.time()
                 
-                if counter > moving_boundry:
-                    flag_success = 1
-                    mouse.click('left')
+                if end - start >= blinking_lim:
+                    print('here')
+                    pyautogui.click(cursorX, cursorY)
                 
-                #print("before change counter:",counter,"average:",moving_boundry)
-                
-                if flag_success == 0:
-                    moving_boundry = min(counter-error_rate, moving_boundry)     
-                else:
-                    moving_boundry = max(counter, moving_boundry+error_rate)
-                
-                #print("after change counter:",counter,"average:",moving_boundry)                          
+                print(end - start)
                 allow_blink = False
                 global_timer_start = time.time()
-            
+             
             if(keyboard.is_pressed("esc")):
                 break
     
