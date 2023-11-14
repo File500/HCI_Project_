@@ -93,9 +93,9 @@ class Camera(object):
                 #print("before change counter:",counter,"average:",moving_boundry)
                 
                 if flag_success == 0:
-                    moving_boundry = min(counter+error_rate, moving_boundry)     
+                    moving_boundry = min(counter-error_rate, moving_boundry)     
                 else:
-                    moving_boundry = max(counter, moving_boundry-error_rate)
+                    moving_boundry = max(counter, moving_boundry+error_rate)
                 
                 #print("after change counter:",counter,"average:",moving_boundry)                          
                 allow_blink = False
