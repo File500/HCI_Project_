@@ -24,15 +24,15 @@ class Camera(object):
         
         sum_x = 327
         sum_y = 208
-        up_down_lim = 192 
-        right_left_lim = 330 
+        up_down_lim = 190
+        right_left_lim = 332 
         
         global_timer_start = time.time()
         allow_blink = False
         
         step = 8
         
-        blinking_lim = 1
+        blinking_lim = 2
                 
         pyautogui.FAILSAFE = False
 
@@ -71,7 +71,11 @@ class Camera(object):
                 start = time.time()
                 end = time.time()
                 
-                while end - start < blinking_lim and gaze.is_blinking():
+                while end - start < blinking_lim:
+                    
+                    if gaze.is_blinking() == False:
+                        break
+                    
                     end = time.time()
                 
                 if end - start >= blinking_lim:
