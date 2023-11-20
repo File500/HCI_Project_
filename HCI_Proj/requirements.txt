@@ -7,3 +7,4 @@ pyautogui
 pygame
 keyboard
 mouse 
+pynput

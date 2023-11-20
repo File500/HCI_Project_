@@ -1,14 +1,12 @@
 import tkinter as tk
 from tkinter import *
-import keyboard as kb
-
-
+from pynput.keyboard import Key, Controller
 
 class KeyB(object):
 
     def run_ons_key():
         
-      
+        kb = Controller()
 
         keyboard_layout = [
             ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "Backspace"],
@@ -18,24 +16,31 @@ class KeyB(object):
         ]
 
         def on_key_press(key):
+            
+            root.withdraw()
+            
             if key == "Backspace":
-                clear_entry()
+                root.after(10, kb.tap(Key.backspace))
+                
             elif key == "Enter":
-                entry.insert(tk.END, '\n')
+                root.after(10, kb.tap(Key.enter)) 
+                
             elif key == "Space":
-                entry.insert(tk.END, ' ')
+                root.after(10, kb.tap(Key.space))
+        
             else:
-                entry.insert(tk.END, key)
-
-        def clear_entry():
-            current_text = entry.get()
-            if current_text:
-                updated_text = current_text[:-1]
-                entry.delete(0, tk.END)
-                entry.insert(0, updated_text)
+                root.after(10, kb.tap(key))
+                
+            
+            root.wm_deiconify()
+            
+        
 
         root = tk.Tk()
+        root.attributes('-topmost', True)
         root.title("Virtual Keyboard")
+        root.update()
+        
 
         # Calculate button width and height to make buttons the same size as Microsoft On-Screen Keyboard
         button_width = 6
@@ -43,9 +48,6 @@ class KeyB(object):
 
         # Configure dark theme
         root.tk_setPalette(background='#333', foreground='#fff', activeBackground='#444', activeForeground='#fff')
-
-        entry = tk.Entry(root, font=('Arial', 20), bg='#333', fg='#fff')
-        entry.grid(row=0, column=0, columnspan=11, padx=10, pady=10, sticky="nsew")
 
         # Create the keyboard layout using a for loop
         for row, row_keys in enumerate(keyboard_layout):
