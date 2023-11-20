@@ -39,9 +39,7 @@ class KeyB(object):
         root = tk.Tk()
         root.attributes('-topmost', True)
         root.title("Virtual Keyboard")
-        root.update()
         
-
         # Calculate button width and height to make buttons the same size as Microsoft On-Screen Keyboard
         button_width = 6
         button_height = 3
