@@ -31,8 +31,7 @@ class KeyB(object):
             else:
                 root.after(10, kb.tap(key))
                 
-            
-            root.wm_deiconify()
+            root.deiconify()
             
         
 
