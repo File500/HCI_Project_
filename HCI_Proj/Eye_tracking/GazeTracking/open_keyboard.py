@@ -5,7 +5,6 @@ def callback(event):
         #os.system("C:\\PROGRA~1\\COMMON~1\\MICROS~1\\ink\\tabtip.exe")
         #os.system('wmic process where name="TabTip.exe" delete') #za gasenje
         os.system("C:\\PROGRA~1\\COMMON~1\\MICROS~1\\ink\\tabtip.exe")
-        
 
 class Inp(object):
 
@@ -22,6 +21,6 @@ class Inp(object):
         addressInput.pack(padx=50,pady=50)
                 
         root.mainloop()
-        os.system('wmic process where name="TabTip.exe" delete')
+        os.system('wmic process where name="TabTip.exe" delete') #za gasenje
         
             

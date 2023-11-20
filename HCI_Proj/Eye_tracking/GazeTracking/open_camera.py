@@ -28,11 +28,12 @@ class Camera(object):
         right_left_lim = 332 
         
         global_timer_start = time.time()
+        start = time.time()
         allow_blink = False
         
         step = 8
         
-        blinking_lim = 2
+        blinking_lim = 1
                 
         pyautogui.FAILSAFE = False
 
@@ -68,24 +69,17 @@ class Camera(object):
             pyautogui.moveTo(cursorX,cursorY)
     
             if gaze.is_blinking() and allow_blink: 
-                start = time.time()
+                
                 end = time.time()
                 
-                while end - start < blinking_lim:
-                    
-                    if gaze.is_blinking() == False:
-                        break
-                    
-                    end = time.time()
-                
                 if end - start >= blinking_lim:
-                    print('here')
+                    time.sleep(1)
+                    start = time.time()
+                    allow_blink = False
+                    global_timer_start = time.time()
                     pyautogui.click(cursorX, cursorY)
                 
-                print(end - start)
-                allow_blink = False
-                global_timer_start = time.time()
-             
+                
             if(keyboard.is_pressed("esc")):
                 break
     

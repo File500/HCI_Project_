@@ -22,14 +22,12 @@ def loop_key():
     
 if __name__ == '__main__':
 
-    Process(target=loop_inp).start()
+    #Process(target=loop_inp).start()
     
-    #Process(target=loop_key).start()
+    Process(target=loop_key).start()
     
     Process(target=loop_camera).start()
-    
-    #os.system("%windir%\system32\osk.exe")
-    #os.system("C:\\Windows\\System32\\osk.exe")
+  
 
 
 
