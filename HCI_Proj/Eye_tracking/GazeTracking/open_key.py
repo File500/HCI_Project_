@@ -51,7 +51,7 @@ class KeyB(object):
 
         # Configure dark theme
         root.tk_setPalette(background='#333', foreground='#fff', activeBackground='#444', activeForeground='#fff')
-        root.geometry("1800x800")
+        root.geometry("1450x650")
         mainframe = tk.Frame(root, height=1200, width=500, bg="gray")
         mainframe.grid(row=0,column=1)
         specialframe = Frame(root, height=600, width=500, bg="gray")
