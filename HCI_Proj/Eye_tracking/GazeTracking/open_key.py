@@ -30,11 +30,8 @@ class KeyB(object):
                 root.after(10, kb.tap(Key.space))
 
             elif key == "Caps Lock":
-                if kb.pressed(Key.caps_lock):
-                    root.after(10, kb.release(Key.caps_lock))
-                else:
-                    root.after(10, kb.press(Key.caps_lock))
-
+                root.after(10, kb.press(Key.caps_lock))
+                root.after(10, kb.release(Key.caps_lock))
             else:
                 root.after(10, kb.tap(key))
                 
