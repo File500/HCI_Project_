@@ -32,9 +32,9 @@ class Camera(object):
         end = time.time()
         allow_blink = False
         
-        step = 8
+        step = 7
         
-        blinking_lim = 1
+        blinking_lim = 0.5
                 
         pyautogui.FAILSAFE = False
 
