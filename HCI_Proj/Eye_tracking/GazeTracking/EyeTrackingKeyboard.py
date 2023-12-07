@@ -12,14 +12,16 @@ class left_right_k(object):
             ["ZXCVBNM,.!"]
         ]
 
-        global root, entry, quadrant_buttons, keyboard_frame
-        quadrant_buttons = []
+        
         all_keys = []
         current_quadrant = 0
+        current_key_index = (0, 0)
         kb = Controller()
-      
+        highlighted_key = None
+        quadrant_buttons = []
+        gaze_thread_running = True
+
         def add_quadrant_buttons():
-            global quadrant_buttons
             for i, quadrant in enumerate(keyboard_layouts):
                 quadrant_button = tk.Button(root, text=f"Quadrant {i + 1}", width=10, height=2, command=lambda q=i: on_quadrant_click(q), font=('Arial', 16))
                 quadrant_button.grid(row=1, column=i+3, padx=10, pady=10)
@@ -31,6 +33,7 @@ class left_right_k(object):
             global current_quadrant
             current_quadrant = quadrant
             refresh_keyboard()
+            root.deiconify()  # Show the root window
 
         # Configure row and column weights to make the quadrants expand
         def configure_weights():
@@ -61,15 +64,12 @@ class left_right_k(object):
                 root.after(10, kb.tap(key))
             root.deiconify()
 
-        def clear_entry():
-            current_text = entry.get()
-            if current_text:
-                updated_text = current_text[:-1]
-                entry.delete(0, tk.END)
-                entry.insert(0, updated_text)
+        def press_current_key():
+            if highlighted_key:
+                key = highlighted_key["text"]
+                on_key_press(key)
 
         def merge_keys():
-            global all_keys
             all_keys = []  # Reset the all_keys list
 
             # Add quadrant buttons
@@ -99,7 +99,7 @@ class left_right_k(object):
                         key_button.grid(row=row, column=col, padx=2, pady=2)
                         col += 1
                 # Add backspace button
-                backspace_button = tk.Button(keyboard_frame, text="Backspace", width=10, height=2, command=lambda k="<=": clear_entry(), font=('Arial', 16))
+                backspace_button = tk.Button(keyboard_frame, text="Backspace", width=10, height=2, command=lambda k="Backspace": on_key_press(k), font=('Arial', 16))
                 backspace_button.grid(row=row, column=col, columnspan=10, padx=10, pady=10)
                 row += 1
 
@@ -125,22 +125,35 @@ class left_right_k(object):
             row += 1
             merge_keys()
 
-        root = tk.Tk()
-        root.title("Virtual Keyboard")
+        def keybrd():
+            global root, keyboard_frame
+            root = tk.Tk()
+            root.title("Virtual Keyboard")
 
             # Configure dark theme
-        root.tk_setPalette(background='#333', foreground='#fff', activeBackground='#444', activeForeground='#fff')
+            root.tk_setPalette(background='#333', foreground='#fff', activeBackground='#444', activeForeground='#fff')
 
-        entry = tk.Entry(root, font=('Arial', 20), bg='#333', fg='#fff')
-        entry.grid(row=0, column=0, columnspan=10, padx=10, pady=10)
+            entry = tk.Entry(root, font=('Arial', 20), bg='#333', fg='#fff')
+            entry.grid(row=0, column=0, columnspan=10, padx=10, pady=10)
 
-        add_quadrant_buttons()
-        configure_weights()
+            add_quadrant_buttons()
+            configure_weights()
 
-        keyboard_frame = tk.Frame(root)
-        keyboard_frame.grid(row=2, column=0, columnspan=10, padx=10, pady=10)
-        refresh_keyboard()
+            keyboard_frame = tk.Frame(root)
+            keyboard_frame.grid(row=2, column=0, columnspan=10, padx=10, pady=10)
+            refresh_keyboard()
+            
 
-        root.mainloop()
+            root.mainloop()
 
- 
+        keybrd()
+
+
+
+                
+
+
+
+
+
+        
