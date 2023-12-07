@@ -12,13 +12,11 @@ class left_right_k(object):
             ["ZXCVBNM,.!"]
         ]
 
+        global root, entry, quadrant_buttons, keyboard_frame
+        quadrant_buttons = []
         all_keys = []
         current_quadrant = 0
         kb = Controller()
-        #quadrant_buttons = []
-        global root, entry, quadrant_buttons, keyboard_frame
-        quadrant_buttons = []
-        #highlighted_key = None
       
         def add_quadrant_buttons():
             global quadrant_buttons
@@ -33,7 +31,6 @@ class left_right_k(object):
             global current_quadrant
             current_quadrant = quadrant
             refresh_keyboard()
-            root.deiconify()  # Show the root window
 
         # Configure row and column weights to make the quadrants expand
         def configure_weights():
@@ -62,7 +59,7 @@ class left_right_k(object):
                 root.after(10, lambda: on_quadrant_click(3))
             else:
                 root.after(10, kb.tap(key))
-                root.deiconify()
+            root.deiconify()
 
         def clear_entry():
             current_text = entry.get()
@@ -70,8 +67,6 @@ class left_right_k(object):
                 updated_text = current_text[:-1]
                 entry.delete(0, tk.END)
                 entry.insert(0, updated_text)
-
-       
 
         def merge_keys():
             global all_keys
