@@ -21,7 +21,7 @@ def loop_key_LR():
     
 if __name__ == '__main__':
     
-    Process(target=loop_key).start()
+    #Process(target=loop_key).start()
     
     Process(target=loop_key_LR).start()
     

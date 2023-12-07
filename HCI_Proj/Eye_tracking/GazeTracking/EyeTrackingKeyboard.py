@@ -18,7 +18,8 @@ class left_right_k(object):
         #quadrant_buttons = []
         global root, entry, quadrant_buttons, keyboard_frame
         quadrant_buttons = []
-        
+        #highlighted_key = None
+      
         def add_quadrant_buttons():
             global quadrant_buttons
             for i, quadrant in enumerate(keyboard_layouts):
@@ -29,10 +30,9 @@ class left_right_k(object):
             all_keys.append(quadrant_buttons)
 
         def on_quadrant_click(quadrant):
-            global current_quadrant, highlighted_key
+            global current_quadrant
             current_quadrant = quadrant
             refresh_keyboard()
-            select_key((0, 0))
             root.deiconify()  # Show the root window
 
         # Configure row and column weights to make the quadrants expand
@@ -71,30 +71,7 @@ class left_right_k(object):
                 entry.delete(0, tk.END)
                 entry.insert(0, updated_text)
 
-        def select_key(key_index):
-            global highlighted_key, current_key_index
-            if highlighted_key:
-                highlighted_key.configure(bg='#333', fg='#fff')  # Reset the previously highlighted key
-            row, col = key_index
-            # Get total number of rows and columns
-            total_rows = len(all_keys)
-            total_cols = len(all_keys[row])
-            print(total_rows, total_cols)
-
-            # If the next key index is beyond the last column, reset the column to 0 and increment the row index
-            if col >= total_cols:
-                col = 0
-                row += 1
-
-            # If the row index is beyond the last row, reset it to 0
-            if row >= total_rows:
-                row = 0
-                col = 0
-
-            key_button = all_keys[row][col]
-            key_button.configure(bg="yellow")  # Highlight the selected key
-            highlighted_key = key_button
-            current_key_index = (row, col)
+       
 
         def merge_keys():
             global all_keys
@@ -168,7 +145,6 @@ class left_right_k(object):
         keyboard_frame = tk.Frame(root)
         keyboard_frame.grid(row=2, column=0, columnspan=10, padx=10, pady=10)
         refresh_keyboard()
-        select_key((0,0))
 
         root.mainloop()
 
