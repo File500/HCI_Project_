@@ -15,8 +15,10 @@ class left_right_k(object):
         all_keys = []
         current_quadrant = 0
         kb = Controller()
+        #quadrant_buttons = []
+        global root, entry, quadrant_buttons, keyboard_frame
         quadrant_buttons = []
-
+        
         def add_quadrant_buttons():
             global quadrant_buttons
             for i, quadrant in enumerate(keyboard_layouts):
