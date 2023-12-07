@@ -1,8 +1,5 @@
 import tkinter as tk
-from gaze_tracking import GazeTracking
-import cv2
-import time
-import threading
+from pynput.keyboard import Key, Controller
 
 class left_right_k(object):
     
@@ -11,26 +8,59 @@ class left_right_k(object):
         keyboard_layouts = [
             ["1234567890"],
             ["QWERTYUIOP"],
-            ["ASDFGHJKL"],
-            ["ZXCVBNM"]
+            ["ASDFGHJKL?"],
+            ["ZXCVBNM,.!"]
         ]
 
+        all_keys = []
         current_quadrant = 0
-        current_key_index = (0, 0)
-        gaze = GazeTracking()
-        webcam = cv2.VideoCapture(0)
+        kb = Controller()
+        quadrant_buttons = []
 
-        highlighted_key = None
+        def add_quadrant_buttons():
+            global quadrant_buttons
+            for i, quadrant in enumerate(keyboard_layouts):
+                quadrant_button = tk.Button(root, text=f"Quadrant {i + 1}", width=10, height=2, command=lambda q=i: on_quadrant_click(q), font=('Arial', 16))
+                quadrant_button.grid(row=1, column=i+3, padx=10, pady=10)
+                quadrant_buttons.append(quadrant_button)
+
+            all_keys.append(quadrant_buttons)
 
         def on_quadrant_click(quadrant):
             global current_quadrant, highlighted_key
             current_quadrant = quadrant
-            highlighted_key = None  # Reset the highlighted key
             refresh_keyboard()
             select_key((0, 0))
+            root.deiconify()  # Show the root window
+
+        # Configure row and column weights to make the quadrants expand
+        def configure_weights():
+            for i in range(10):
+                root.grid_rowconfigure(i, weight=3)
+                root.grid_columnconfigure(i, weight=3)
 
         def on_key_press(key):
-            entry.insert(tk.END, key)
+            root.withdraw()
+            if key == "Backspace":
+                root.after(10, kb.tap(Key.backspace))
+            elif key == "Enter":
+                root.after(10, kb.tap(Key.enter)) 
+            elif key == "Space":
+                root.after(10, kb.tap(Key.space))
+            elif key == "Caps Lock":
+                root.after(10, kb.press(Key.caps_lock))
+                root.after(10, kb.release(Key.caps_lock))
+            elif key == "Quadrant 1":
+                root.after(10, lambda: on_quadrant_click(0))
+            elif key == "Quadrant 2":
+                root.after(10, lambda: on_quadrant_click(1))
+            elif key == "Quadrant 3":
+                root.after(10, lambda: on_quadrant_click(2))
+            elif key == "Quadrant 4":
+                root.after(10, lambda: on_quadrant_click(3))
+            else:
+                root.after(10, kb.tap(key))
+                root.deiconify()
 
         def clear_entry():
             current_text = entry.get()
@@ -44,16 +74,40 @@ class left_right_k(object):
             if highlighted_key:
                 highlighted_key.configure(bg='#333', fg='#fff')  # Reset the previously highlighted key
             row, col = key_index
-            key_button = keyboard_frame.grid_slaves(row=row, column=col)[0]
+            # Get total number of rows and columns
+            total_rows = len(all_keys)
+            total_cols = len(all_keys[row])
+            print(total_rows, total_cols)
+
+            # If the next key index is beyond the last column, reset the column to 0 and increment the row index
+            if col >= total_cols:
+                col = 0
+                row += 1
+
+            # If the row index is beyond the last row, reset it to 0
+            if row >= total_rows:
+                row = 0
+                col = 0
+
+            key_button = all_keys[row][col]
             key_button.configure(bg="yellow")  # Highlight the selected key
             highlighted_key = key_button
-            current_key_index = key_index
+            current_key_index = (row, col)
 
+        def merge_keys():
+            global all_keys
+            all_keys = []  # Reset the all_keys list
 
-        def press_current_key():
-            if highlighted_key:
-                key = highlighted_key["text"]
-                on_key_press(key)
+            # Add quadrant buttons
+            if quadrant_buttons not in all_keys:
+                all_keys.append(quadrant_buttons)
+
+            # Add keyboard keys
+            keyboard_keys = []
+            for widget in keyboard_frame.winfo_children():
+                if isinstance(widget, tk.Button):
+                    keyboard_keys.append(widget)
+            all_keys.append(keyboard_keys)
 
         def refresh_keyboard():
             for widget in keyboard_frame.winfo_children():
@@ -70,38 +124,44 @@ class left_right_k(object):
                         key_button = tk.Button(keyboard_frame, text=key, width=5, height=2, command=lambda k=key: on_key_press(k), font=('Arial', 16))
                         key_button.grid(row=row, column=col, padx=2, pady=2)
                         col += 1
-                    # Add backspace button
-                backspace_button = tk.Button(keyboard_frame, text="<=", width=10, height=2, command=lambda k="<=": clear_entry(), font=('Arial', 16))
+                # Add backspace button
+                backspace_button = tk.Button(keyboard_frame, text="Backspace", width=10, height=2, command=lambda k="<=": clear_entry(), font=('Arial', 16))
                 backspace_button.grid(row=row, column=col, columnspan=10, padx=10, pady=10)
                 row += 1
 
 
-            # Add space button
-            space_button = tk.Button(keyboard_frame, text="Space", width=30, height=2, command=lambda k=" ": on_key_press(k), font=('Arial', 16))
-            space_button.grid(row=row, column=1, columnspan=10, padx=10, pady=10)
-            row += 1
+            # Create a new frame for the bottom row
+            bottom_row_frame = tk.Frame(keyboard_frame)
+            bottom_row_frame.grid(row=row, column=0, columnspan=col, padx=10, pady=10)
 
+            # empty label to move buttons to the center of the frame
+            left_label = tk.Label(bottom_row_frame, width=23)
+            left_label.pack(side=tk.LEFT, expand=True)
+            # Add Caps Lock button
+            caps_lock_button = tk.Button(bottom_row_frame, text="Caps Lock", width=10, height=2, command=lambda k="Caps Lock": on_key_press(k), font=('Arial', 16))
+            caps_lock_button.pack(side=tk.LEFT, padx=10, pady=10)
+
+            # Add space button
+            space_button = tk.Button(bottom_row_frame, text="Space", width=30, height=2, command=lambda k=" ": on_key_press(k), font=('Arial', 16))
+            space_button.pack(side=tk.LEFT, padx=10, pady=10)
+
+            # Add Enter button
+            enter_button = tk.Button(bottom_row_frame, text="Enter", width=10, height=2, command=lambda k="Enter": on_key_press(k), font=('Arial', 16))
+            enter_button.pack(side=tk.LEFT, padx=10, pady=10)
+            row += 1
+            merge_keys()
 
         root = tk.Tk()
         root.title("Virtual Keyboard")
 
-        # Configure dark theme
+            # Configure dark theme
         root.tk_setPalette(background='#333', foreground='#fff', activeBackground='#444', activeForeground='#fff')
 
         entry = tk.Entry(root, font=('Arial', 20), bg='#333', fg='#fff')
         entry.grid(row=0, column=0, columnspan=10, padx=10, pady=10)
 
-        quadrant_buttons = []
-
-        for i, quadrant in enumerate(keyboard_layouts):
-            quadrant_button = tk.Button(root, text=f"Quadrant {i + 1}", width=10, height=2, command=lambda q=i: on_quadrant_click(q), font=('Arial', 16))
-            quadrant_button.grid(row=1, column=i+3, padx=10, pady=10)
-            quadrant_buttons.append(quadrant_button)
-
-        # Configure row and column weights to make the quadrants expand
-        for i in range(10):
-            root.grid_rowconfigure(i, weight=3)
-            root.grid_columnconfigure(i, weight=3)
+        add_quadrant_buttons()
+        configure_weights()
 
         keyboard_frame = tk.Frame(root)
         keyboard_frame.grid(row=2, column=0, columnspan=10, padx=10, pady=10)
@@ -109,3 +169,5 @@ class left_right_k(object):
         select_key((0,0))
 
         root.mainloop()
+
+ 
