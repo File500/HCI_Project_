@@ -4,9 +4,9 @@ from pynput.keyboard import Key, Controller
 
 keyboard_layouts = [
     ["1234567890"],
-    ["QWERTYUIOP"],
-    ["ASDFGHJKL?"],
-    ["ZXCVBNM,.!"]
+    ["qwertyuiop"],
+    ["asdfghjkl?"],
+    ["zxcvbnm,.!"]
 ]
 
 all_keys = []
@@ -31,7 +31,7 @@ def on_quadrant_click(quadrant):
     global current_quadrant, highlighted_key
     current_quadrant = quadrant
     refresh_keyboard()
-    root.deiconify()  # Show the root window
+    #root.deiconify()  # Show the root window
 
 # Configure row and column weights to make the quadrants expand
 def configure_weights():

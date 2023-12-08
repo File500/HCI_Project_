@@ -1,11 +1,10 @@
 from open_camera import Camera
 from open_key import KeyB
-from EyeTrackingKeyboard import left_right_k
+from LR_key import keybrd 
 from multiprocessing import Process
 
 cam = Camera
 keyb = KeyB
-keylr = left_right_k
 
 def loop_camera():
 
@@ -17,12 +16,12 @@ def loop_key():
     
 def loop_key_LR():
 
-    keylr.run_left_right()
+    keybrd()
     
 if __name__ == '__main__':
     
-    #Process(target=loop_key).start()
+    Process(target=loop_key).start()
     
     Process(target=loop_key_LR).start()
     
-    #Process(target=loop_camera).start()
+    Process(target=loop_camera).start()
