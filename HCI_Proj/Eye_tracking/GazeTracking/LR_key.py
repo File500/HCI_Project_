@@ -128,13 +128,11 @@ def keybrd():
     global root, entry, quadrant_buttons, keyboard_frame
 
     root = tk.Tk()
+    root.attributes('-topmost', True)
     root.title("Virtual Keyboard")
 
     # Configure dark theme
     root.tk_setPalette(background='#333', foreground='#fff', activeBackground='#444', activeForeground='#fff')
-
-    entry = tk.Entry(root, font=('Arial', 20), bg='#333', fg='#fff')
-    entry.grid(row=0, column=0, columnspan=10, padx=10, pady=10)
 
     add_quadrant_buttons()
     configure_weights()
