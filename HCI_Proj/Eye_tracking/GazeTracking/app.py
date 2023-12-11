@@ -28,13 +28,15 @@ def on_key_press(k):
     
     if k == 1 or k == 2:
         Process(target=loop_key_LR).start()
-    
-        #Process(target=loop_camera).start()
         
     if k == 3 or k == 4:
         Process(target=loop_key).start()
         
-        #Process(target=loop_camera).start()
+    if k % 2 == 0:
+        Process(target=loop_camera).start()
+    else:
+        #dodat davidov kod
+        print("jos nije implementirano")
         
 def start_home():
             
