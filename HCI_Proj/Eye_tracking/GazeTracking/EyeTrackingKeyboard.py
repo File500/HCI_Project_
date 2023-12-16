@@ -40,7 +40,7 @@ def on_quadrant_click(quadrant):
     select_key((0, 0))
     root.deiconify()  # Show the root window
 
-# Configure row and column weights to make the quadrants expand
+# Configure row and column weights to make the quadrants expand 
 def configure_weights():
     for i in range(10):
         root.grid_rowconfigure(i, weight=3)
@@ -48,27 +48,26 @@ def configure_weights():
 
 def on_key_press(key):
     root.withdraw()
-    if key == "Backspace":
-        root.after(10, kb.tap(Key.backspace))
-    elif key == "Enter":
-        root.after(10, kb.tap(Key.enter)) 
-    elif key == "Space":
-        root.after(10, kb.tap(Key.space))
-    elif key == "Caps Lock":
-        root.after(10, kb.press(Key.caps_lock))
-        root.after(10, kb.release(Key.caps_lock))
-    elif key == "Quadrant 1":
-        root.after(10, lambda: on_quadrant_click(0))
-    elif key == "Quadrant 2":
-        root.after(10, lambda: on_quadrant_click(1))
-    elif key == "Quadrant 3":
-        root.after(10, lambda: on_quadrant_click(2))
-    elif key == "Quadrant 4":
-        root.after(10, lambda: on_quadrant_click(3))
+    special_keys = {
+        "Backspace": Key.backspace,
+        "Enter": Key.enter,
+        "Space": Key.space,
+        "Caps Lock": Key.caps_lock,
+        "Quadrant 1": lambda: on_quadrant_click(0),
+        "Quadrant 2": lambda: on_quadrant_click(1),
+        "Quadrant 3": lambda: on_quadrant_click(2),
+        "Quadrant 4": lambda: on_quadrant_click(3)
+    }
+
+    if key in special_keys:
+        action = special_keys[key]
+        if callable(action):
+            root.after(10, action)
+        else:
+            root.after(10, kb.tap(action))
     else:
         root.after(10, kb.tap(key))
     root.deiconify()
-
 
 def select_key(key_index):
     global highlighted_key, current_key_index
@@ -78,7 +77,6 @@ def select_key(key_index):
     # Get total number of rows and columns
     total_rows = len(all_keys)
     total_cols = len(all_keys[row])
-    print(total_rows, total_cols)
 
     # If the next key index is beyond the last column, reset the column to 0 and increment the row index
     if col >= total_cols:
@@ -138,8 +136,9 @@ def merge_keys():
             bottom_row_keys.append(widget)
     all_keys.append(bottom_row_keys)
 
-    print(all_keys)
 
+def create_button(parent, text, width, height, command, font):
+    return tk.Button(parent, text=text, width=width, height=height, command=command, font=font)
 
 def refresh_keyboard():
     global bottom_row_frame 
@@ -151,97 +150,58 @@ def refresh_keyboard():
     for key_row in row_layout:
         col = 0
         for key in key_row:
-            if key == " ":
-                col += 1
-            else:
-                key_button = tk.Button(keyboard_frame, text=key, width=5, height=2, command=lambda k=key: on_key_press(k), font=('Arial', 16))
+            if key != " ":
+                key_button = create_button(keyboard_frame, key, 5, 2, lambda k=key: on_key_press(k), ('Arial', 16))
                 key_button.grid(row=row, column=col, padx=2, pady=2)
-                col += 1
-        # Add backspace button
-        backspace_button = tk.Button(keyboard_frame, text="Backspace", width=10, height=2, command=lambda k="Backspace": on_key_press(k), font=('Arial', 16))
+            col += 1
+
+        backspace_button = create_button(keyboard_frame, "Backspace", 10, 2, lambda k="Backspace": on_key_press(k), ('Arial', 16))
         backspace_button.grid(row=row, column=col, columnspan=10, padx=10, pady=10)
         row += 1
 
-
-    # Create a new frame for the bottom row
     bottom_row_frame = tk.Frame(keyboard_frame)
     bottom_row_frame.grid(row=row, column=0, columnspan=col, padx=10, pady=10)
 
-    # empty label to move buttons to the center of the frame
     left_label = tk.Label(bottom_row_frame, width=23)
     left_label.pack(side=tk.LEFT, expand=True)
-    # Add Caps Lock button
-    caps_lock_button = tk.Button(bottom_row_frame, text="Caps Lock", width=10, height=2, command=lambda k="Caps Lock": on_key_press(k), font=('Arial', 16))
-    caps_lock_button.pack(side=tk.LEFT, padx=10, pady=10)
 
-    # Add space button
-    space_button = tk.Button(bottom_row_frame, text="Space", width=30, height=2, command=lambda k=" ": on_key_press(k), font=('Arial', 16))
-    space_button.pack(side=tk.LEFT, padx=10, pady=10)
+    special_keys = {"Caps Lock": 10, "Space": 30, "Enter": 10}
+    for key, width in special_keys.items():
+        button = create_button(bottom_row_frame, key, width, 2, lambda k=key: on_key_press(k), ('Arial', 16))
+        button.pack(side=tk.LEFT, padx=10, pady=10)
 
-    # Add Enter button
-    enter_button = tk.Button(bottom_row_frame, text="Enter", width=10, height=2, command=lambda k="Enter": on_key_press(k), font=('Arial', 16))
-    enter_button.pack(side=tk.LEFT, padx=10, pady=10)
     row += 1
     merge_keys()
 
-def check_time_looking(gaze, webcam, threshold_seconds=0.75):
-    start_time_left = None
-    start_time_right = None
-    start_time_blink = None
-    elapsed_time_left = 0
-    elapsed_time_right = 0
-    elapsed_time_blink = 0
+def check_time_looking(gaze, webcam, threshold_seconds=0.5):
+    states = {
+        "left": {"start_time": None, "elapsed_time": 0, "action": move_left, "message": "User has been looking left for 1 second"},
+        "right": {"start_time": None, "elapsed_time": 0, "action": move_right, "message": "User has been looking right for 1 second"},
+        "blinking": {"start_time": None, "elapsed_time": 0, "action": press_current_key, "message": "User has been blinking for 2 seconds", "threshold": 1.5}
+    }
 
     while gaze_thread_running:
         _, frame = webcam.read()
         gaze.refresh(frame)
 
-        if gaze.is_left():
-            # Reset the right gaze/blink timer
-            start_time_right = None
-            start_time_blink = None
+        for state, info in states.items():
+            if getattr(gaze, f"is_{state}")():
+                # Reset the other states
+                for other_state in states:
+                    if other_state != state:
+                        states[other_state]["start_time"] = None
 
-            if start_time_left is None:
-                start_time_left = time.time()
+                if info["start_time"] is None:
+                    info["start_time"] = time.time()
+                else:
+                    info["elapsed_time"] = time.time() - info["start_time"]
+
+                if info["elapsed_time"] >= info.get("threshold", threshold_seconds):
+                    print(info["message"])
+                    info["action"]()
+                    info["start_time"] = time.time()
             else:
-                elapsed_time_left = time.time() - start_time_left
-
-            if elapsed_time_left >= threshold_seconds:
-                print("User has been looking left for 1 second")
-                move_left()
-                start_time_left = time.time()
-
-        elif gaze.is_right():
-            # Reset the left gaze/blink timer
-            start_time_left = None
-            start_time_blink = None
-
-            if start_time_right is None:
-                start_time_right = time.time()
-            else:
-                elapsed_time_right = time.time() - start_time_right
-
-            if elapsed_time_right >= threshold_seconds:
-                print("User has been looking right for 1 second")
-                move_right()
-                start_time_right = time.time()
-        elif gaze.is_blinking():
-            start_time_left = None
-            start_time_right = None
-
-            if start_time_blink is None:
-                start_time_blink = time.time()
-            else: 
-                elapsed_time_blink = time.time() - start_time_blink
-            if elapsed_time_blink >= 2.2:
-                print("User has been blinking for 2 seconds")
-                press_current_key()
-                start_time_blink = time.time()
-
-        else:
-            start_time_left = None
-            start_time_right = None
-            start_time_blink = None
+                info["start_time"] = None
     webcam.release()
 
 
