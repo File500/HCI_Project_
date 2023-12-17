@@ -118,23 +118,18 @@ def merge_keys():
     global all_keys, keyboard_frame, bottom_row_frame
     all_keys = []  # Reset the all_keys list
 
-    # Add quadrant buttons
     if quadrant_buttons not in all_keys:
         all_keys.append(quadrant_buttons)
 
-    # Add keyboard keys
-    keyboard_keys = []
-    for widget in keyboard_frame.winfo_children():
-        if isinstance(widget, tk.Button):
-            keyboard_keys.append(widget)
-    all_keys.append(keyboard_keys)
+    # List of frames to iterate over
+    frames = [keyboard_frame, bottom_row_frame]
 
-    # Add bottom row buttons
-    bottom_row_keys = []
-    for widget in bottom_row_frame.winfo_children():
-        if isinstance(widget, tk.Button):
-            bottom_row_keys.append(widget)
-    all_keys.append(bottom_row_keys)
+    for frame in frames:
+        frame_keys = [widget for widget in frame.winfo_children() if isinstance(widget, tk.Button)]
+        all_keys.append(frame_keys)
+
+    # Add quadrant buttons
+    all_keys.append(quadrant_buttons)
 
 
 def create_button(parent, text, width, height, command, font):
