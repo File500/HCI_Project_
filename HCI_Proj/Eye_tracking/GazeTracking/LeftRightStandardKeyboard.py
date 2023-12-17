@@ -29,15 +29,19 @@ def configure_weights():
 
 def on_key_press(key):
     root.withdraw()
-    if key == "Backspace":
-        root.after(10, kb.tap(Key.backspace))
-    elif key == "Enter":
-        root.after(10, kb.tap(Key.enter)) 
-    elif key == "Space":
-        root.after(10, kb.tap(Key.space))
-    elif key == "Caps Lock":
-        root.after(10, kb.press(Key.caps_lock))
-        root.after(10, kb.release(Key.caps_lock))
+    special_keys = {
+        "Backspace": Key.backspace,
+        "Enter": Key.enter,
+        "Space": Key.space,
+        "Caps Lock": Key.caps_lock,
+    }
+
+    if key in special_keys:
+        action = special_keys[key]
+        if callable(action):
+            root.after(10, action)
+        else:
+            root.after(10, kb.tap(action))
     else:
         root.after(10, kb.tap(key))
     root.deiconify()
@@ -91,27 +95,12 @@ def merge_keys():
     global all_keys
     all_keys = []  # Reset the all_keys list
 
-    # Add keys from the special frame
-    special_keys = []
-    for widget in specialFrame.winfo_children():
-        if isinstance(widget, tk.Button):
-            special_keys.append(widget)
-    all_keys.append(special_keys)
+    # List of frames to iterate over
+    frames = [specialFrame, mainFrame, keyboard_frame]
 
-    # Add keys from the main frame
-    main_keys = []
-    for widget in mainFrame.winfo_children():
-        if isinstance(widget, tk.Button):
-            main_keys.append(widget)
-    all_keys.append(main_keys)
-
-    # Add keyboard keys
-    keyboard_keys = []
-    for widget in keyboard_frame.winfo_children():
-        if isinstance(widget, tk.Button):
-            keyboard_keys.append(widget)
-    all_keys.append(keyboard_keys)
-
+    for frame in frames:
+        frame_keys = [widget for widget in frame.winfo_children() if isinstance(widget, tk.Button)]
+        all_keys.append(frame_keys)
 
 
 def refresh_keyboard():
@@ -140,64 +129,37 @@ def refresh_keyboard():
     all_keys.append([key_sp])
 
 
-def check_time_looking(gaze, webcam, threshold_seconds=0.75):
-    start_time_left = None
-    start_time_right = None
-    start_time_blink = None
-    elapsed_time_left = 0
-    elapsed_time_right = 0
-    elapsed_time_blink = 0
+def check_time_looking(gaze, webcam, threshold_seconds=0.6):
+    states = {
+        "left": {"start_time": None, "elapsed_time": 0, "action": move_left, "message": "User has been looking left for 1 second"},
+        "right": {"start_time": None, "elapsed_time": 0, "action": move_right, "message": "User has been looking right for 1 second"},
+        "blinking": {"start_time": None, "elapsed_time": 0, "action": press_current_key, "message": "User has been blinking for 2 seconds", "threshold": 1.5}
+    }
 
     while gaze_thread_running:
         _, frame = webcam.read()
         gaze.refresh(frame)
 
-        if gaze.is_left():
-            # Reset the right gaze/blink timer
-            start_time_right = None
-            start_time_blink = None
+        for state, info in states.items():
+            if getattr(gaze, f"is_{state}")():
+                # Reset the other states
+                for other_state in states:
+                    if other_state != state:
+                        states[other_state]["start_time"] = None
 
-            if start_time_left is None:
-                start_time_left = time.time()
+                if info["start_time"] is None:
+                    info["start_time"] = time.time()
+                else:
+                    info["elapsed_time"] = time.time() - info["start_time"]
+
+                if info["elapsed_time"] >= info.get("threshold", threshold_seconds):
+                    print(info["message"])
+                    info["action"]()
+                    info["start_time"] = time.time()
             else:
-                elapsed_time_left = time.time() - start_time_left
+                info["start_time"] = None
+    webcam.release()
 
-            if elapsed_time_left >= threshold_seconds:
-                print("User has been looking left for 1 second")
-                move_left()
-                start_time_left = time.time()
-
-        elif gaze.is_right():
-            # Reset the left gaze/blink timer
-            start_time_left = None
-            start_time_blink = None
-
-            if start_time_right is None:
-                start_time_right = time.time()
-            else:
-                elapsed_time_right = time.time() - start_time_right
-
-            if elapsed_time_right >= threshold_seconds:
-                print("User has been looking right for 1 second")
-                move_right()
-                start_time_right = time.time()
-        elif gaze.is_blinking():
-            start_time_left = None
-            start_time_right = None
-
-            if start_time_blink is None:
-                start_time_blink = time.time()
-            else: 
-                elapsed_time_blink = time.time() - start_time_blink
-            if elapsed_time_blink >= 2.0:
-                print("User has been blinking for 2 seconds")
-                press_current_key()
-                start_time_blink = time.time()
-
-        else:
-            start_time_left = None
-            start_time_right = None
-            start_time_blink = None
 
 
 
