@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<TextTest version="2.8.4" trials="3" ticks="638399035869058210" seconds="63839903586.91" date="Wednesday, January 3, 2024 6:33:06 PM">
+  <Trial number="1" testing="false" entries="20">
+    <Presented>Cats purr softly</Presented>
+    <Entry char="9" value="57" ticks="638399037376354497" seconds="63839903737.64" />
+    <Entry char="&#x8;" value="8" ticks="638399037467101205" seconds="63839903746.71" />
+    <Entry char="c" value="99" ticks="638399037737527596" seconds="63839903773.75" />
+    <Entry char="a" value="97" ticks="638399038150902928" seconds="63839903815.09" />
+    <Entry char="t" value="116" ticks="638399038438031456" seconds="63839903843.8" />
+    <Entry char="s" value="115" ticks="638399038850323459" seconds="63839903885.03" />
+    <Entry char=" " value="32" ticks="638399039090688407" seconds="63839903909.07" />
+    <Entry char="p" value="112" ticks="638399039495929405" seconds="63839903949.59" />
+    <Entry char="u" value="117" ticks="638399039577117139" seconds="63839903957.71" />
+    <Entry char="r" value="114" ticks="638399039683086547" seconds="63839903968.31" />
+    <Entry char="r" value="114" ticks="638399039731096452" seconds="63839903973.11" />
+    <Entry char=" " value="32" ticks="638399039794297725" seconds="63839903979.43" />
+    <Entry char="s" value="115" ticks="638399040049758017" seconds="63839904004.98" />
+    <Entry char="o" value="111" ticks="638399040475607591" seconds="63839904047.56" />
+    <Entry char="f" value="102" ticks="638399040653090200" seconds="63839904065.31" />
+    <Entry char="t" value="116" ticks="638399040859412177" seconds="63839904085.94" />
+    <Entry char="i" value="105" ticks="638399040946070937" seconds="63839904094.61" />
+    <Entry char="&#x8;" value="8" ticks="638399041040782875" seconds="63839904104.08" />
+    <Entry char="l" value="108" ticks="638399041211555378" seconds="63839904121.16" />
+    <Entry char="y" value="121" ticks="638399041336770225" seconds="63839904133.68" />
+    <Transcribed>cats purr softly</Transcribed>
+  </Trial>
+  <Trial number="2" testing="false" entries="14">
+    <Presented>Dogs wag tails</Presented>
+    <Entry char="d" value="100" ticks="638399041660672692" seconds="63839904166.07" />
+    <Entry char="o" value="111" ticks="638399041962972384" seconds="63839904196.3" />
+    <Entry char="g" value="103" ticks="638399042209184100" seconds="63839904220.92" />
+    <Entry char="s" value="115" ticks="638399042399930116" seconds="63839904239.99" />
+    <Entry char=" " value="32" ticks="638399042534549785" seconds="63839904253.45" />
+    <Entry char="w" value="119" ticks="638399042743397785" seconds="63839904274.34" />
+    <Entry char="a" value="97" ticks="638399043026347753" seconds="63839904302.63" />
+    <Entry char="g" value="103" ticks="638399043132052832" seconds="63839904313.21" />
+    <Entry char=" " value="32" ticks="638399043173368747" seconds="63839904317.34" />
+    <Entry char="t" value="116" ticks="638399043331361610" seconds="63839904333.14" />
+    <Entry char="a" value="97" ticks="638399043566168675" seconds="63839904356.62" />
+    <Entry char="i" value="105" ticks="638399043818947001" seconds="63839904381.89" />
+    <Entry char="l" value="108" ticks="638399044017188950" seconds="63839904401.72" />
+    <Entry char="s" value="115" ticks="638399044188668475" seconds="63839904418.87" />
+    <Transcribed>dogs wag tails</Transcribed>
+  </Trial>
+  <Trial number="3" testing="false" entries="22">
+    <Presented>Whispers carry secrets</Presented>
+    <Entry char="w" value="119" ticks="638399044766758128" seconds="63839904476.68" />
+    <Entry char="h" value="104" ticks="638399044941159302" seconds="63839904494.12" />
+    <Entry char="i" value="105" ticks="638399045119966572" seconds="63839904512" />
+    <Entry char="s" value="115" ticks="638399045312508736" seconds="63839904531.25" />
+    <Entry char="p" value="112" ticks="638399045539057157" seconds="63839904553.91" />
+    <Entry char="e" value="101" ticks="638399045709291259" seconds="63839904570.93" />
+    <Entry char="r" value="114" ticks="638399045834332382" seconds="63839904583.43" />
+    <Entry char="s" value="115" ticks="638399046092424392" seconds="63839904609.24" />
+    <Entry char=" " value="32" ticks="638399046192667135" seconds="63839904619.27" />
+    <Entry char="c" value="99" ticks="638399046640391752" seconds="63839904664.04" />
+    <Entry char="a" value="97" ticks="638399046924835237" seconds="63839904692.48" />
+    <Entry char="r" value="114" ticks="638399047260051910" seconds="63839904726.01" />
+    <Entry char="r" value="114" ticks="638399047313698937" seconds="63839904731.37" />
+    <Entry char="y" value="121" ticks="638399047416977899" seconds="63839904741.7" />
+    <Entry char=" " value="32" ticks="638399047485794512" seconds="63839904748.58" />
+    <Entry char="s" value="115" ticks="638399047723557991" seconds="63839904772.36" />
+    <Entry char="e" value="101" ticks="638399047900875750" seconds="63839904790.09" />
+    <Entry char="c" value="99" ticks="638399048270224400" seconds="63839904827.02" />
+    <Entry char="r" value="114" ticks="638399048391175515" seconds="63839904839.12" />
+    <Entry char="e" value="101" ticks="638399048454610617" seconds="63839904845.46" />
+    <Entry char="t" value="116" ticks="638399048516490065" seconds="63839904851.65" />
+    <Entry char="s" value="115" ticks="638399048704684896" seconds="63839904870.47" />
+    <Transcribed>whispers carry secrets</Transcribed>
+  </Trial>
+</TextTest>
