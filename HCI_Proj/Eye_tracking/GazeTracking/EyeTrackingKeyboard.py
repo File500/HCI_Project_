@@ -16,8 +16,6 @@ keyboard_layouts = [
 all_keys = []
 current_quadrant = 0
 current_key_index = (0, 0)
-gaze = GazeTracking()
-webcam = cv2.VideoCapture(0)
 kb = Controller()
 highlighted_key = None
 quadrant_buttons = []
@@ -168,7 +166,7 @@ def refresh_keyboard():
     row += 1
     merge_keys()
 
-def check_time_looking(gaze, webcam, threshold_seconds=0.5):
+def check_time_looking(gaze, webcam, threshold_seconds=0.6):
     states = {
         "left": {"start_time": None, "elapsed_time": 0, "action": move_left, "message": "User has been looking left for 1 second"},
         "right": {"start_time": None, "elapsed_time": 0, "action": move_right, "message": "User has been looking right for 1 second"},
@@ -203,7 +201,7 @@ def check_time_looking(gaze, webcam, threshold_seconds=0.5):
 
 def gaze_tracking_thread():
     gaze = GazeTracking()  # Initialize gaze tracking
-    webcam = cv2.VideoCapture(0)  # Replace 0 with the appropriate camera index if needed
+    webcam = cv2.VideoCapture(1)  # Replace 0 with the appropriate camera index if needed
 
     check_time_looking(gaze, webcam)
 

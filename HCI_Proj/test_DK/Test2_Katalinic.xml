@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<TextTest version="2.8.4" trials="3" ticks="638400073312508884" seconds="63840007331.25" date="4. siječnja 2024. 23:22:11">
+  <Trial number="1" testing="true" entries="22">
+    <Presented>Whispers carry secrets</Presented>
+    <Entry char="w" value="119" ticks="638400073661465774" seconds="63840007366.15" />
+    <Entry char="h" value="104" ticks="638400073844585722" seconds="63840007384.46" />
+    <Entry char="i" value="105" ticks="638400073924091089" seconds="63840007392.41" />
+    <Entry char="s" value="115" ticks="638400074076135302" seconds="63840007407.61" />
+    <Entry char="p" value="112" ticks="638400074124191643" seconds="63840007412.42" />
+    <Entry char="e" value="101" ticks="638400074239720027" seconds="63840007423.97" />
+    <Entry char="r" value="114" ticks="638400074284948957" seconds="63840007428.49" />
+    <Entry char="s" value="115" ticks="638400074365660241" seconds="63840007436.57" />
+    <Entry char=" " value="32" ticks="638400074538889228" seconds="63840007453.89" />
+    <Entry char="c" value="99" ticks="638400074904494104" seconds="63840007490.45" />
+    <Entry char="a" value="97" ticks="638400075058512057" seconds="63840007505.85" />
+    <Entry char="r" value="114" ticks="638400075184582782" seconds="63840007518.46" />
+    <Entry char="r" value="114" ticks="638400075185480115" seconds="63840007518.55" />
+    <Entry char="y" value="121" ticks="638400075241147506" seconds="63840007524.11" />
+    <Entry char=" " value="32" ticks="638400075488566018" seconds="63840007548.86" />
+    <Entry char="s" value="115" ticks="638400076005713471" seconds="63840007600.57" />
+    <Entry char="e" value="101" ticks="638400076151910160" seconds="63840007615.19" />
+    <Entry char="c" value="99" ticks="638400076398322854" seconds="63840007639.83" />
+    <Entry char="r" value="114" ticks="638400076590252016" seconds="63840007659.03" />
+    <Entry char="e" value="101" ticks="638400076638617033" seconds="63840007663.86" />
+    <Entry char="t" value="116" ticks="638400076684435087" seconds="63840007668.44" />
+    <Entry char="s" value="115" ticks="638400076776618175" seconds="63840007677.66" />
+    <Transcribed>whispers carry secrets</Transcribed>
+  </Trial>
+  <Trial number="2" testing="true" entries="25">
+    <Presented>Bridges connect worlds</Presented>
+    <Entry char="x" value="120" ticks="638400077298822931" seconds="63840007729.88" />
+    <Entry char="&#x8;" value="8" ticks="638400077409691452" seconds="63840007740.97" />
+    <Entry char="b" value="98" ticks="638400077751008961" seconds="63840007775.1" />
+    <Entry char="r" value="114" ticks="638400078057372229" seconds="63840007805.74" />
+    <Entry char="d" value="100" ticks="638400078149141689" seconds="63840007814.91" />
+    <Entry char="g" value="103" ticks="638400078197878156" seconds="63840007819.79" />
+    <Entry char="e" value="101" ticks="638400078385056206" seconds="63840007838.51" />
+    <Entry char="s" value="115" ticks="638400078492966763" seconds="63840007849.3" />
+    <Entry char="c" value="99" ticks="638400078607383390" seconds="63840007860.74" />
+    <Entry char="&#x8;" value="8" ticks="638400078955524283" seconds="63840007895.55" />
+    <Entry char=" " value="32" ticks="638400079257593045" seconds="63840007925.76" />
+    <Entry char="c" value="99" ticks="638400079413015172" seconds="63840007941.3" />
+    <Entry char="o" value="111" ticks="638400079596849086" seconds="63840007959.68" />
+    <Entry char="n" value="110" ticks="638400079739063052" seconds="63840007973.91" />
+    <Entry char="n" value="110" ticks="638400079765569598" seconds="63840007976.56" />
+    <Entry char="e" value="101" ticks="638400080102636471" seconds="63840008010.26" />
+    <Entry char="c" value="99" ticks="638400080264861456" seconds="63840008026.49" />
+    <Entry char="t" value="116" ticks="638400080489450681" seconds="63840008048.95" />
+    <Entry char=" " value="32" ticks="638400080654823122" seconds="63840008065.48" />
+    <Entry char="w" value="119" ticks="638400080788661346" seconds="63840008078.87" />
+    <Entry char="o" value="111" ticks="638400080958888803" seconds="63840008095.89" />
+    <Entry char="r" value="114" ticks="638400081054116607" seconds="63840008105.41" />
+    <Entry char="l" value="108" ticks="638400081190954380" seconds="63840008119.1" />
+    <Entry char="d" value="100" ticks="638400081387119386" seconds="63840008138.71" />
+    <Entry char="s" value="115" ticks="638400081440719998" seconds="63840008144.07" />
+    <Transcribed>brdges connect worlds</Transcribed>
+  </Trial>
+  <Trial number="3" testing="true" entries="30">
+    <Presented>Mountains stand majestically</Presented>
+    <Entry char="m" value="109" ticks="638400082022926252" seconds="63840008202.29" />
+    <Entry char="o" value="111" ticks="638400082207278118" seconds="63840008220.73" />
+    <Entry char="u" value="117" ticks="638400082264728187" seconds="63840008226.47" />
+    <Entry char="n" value="110" ticks="638400082448230692" seconds="63840008244.82" />
+    <Entry char="t" value="116" ticks="638400082706817357" seconds="63840008270.68" />
+    <Entry char="a" value="97" ticks="638400082785549103" seconds="63840008278.55" />
+    <Entry char="i" value="105" ticks="638400082834056960" seconds="63840008283.41" />
+    <Entry char="n" value="110" ticks="638400082977220516" seconds="63840008297.72" />
+    <Entry char="s" value="115" ticks="638400083105046339" seconds="63840008310.5" />
+    <Entry char=" " value="32" ticks="638400083264088341" seconds="63840008326.41" />
+    <Entry char="s" value="115" ticks="638400083471198788" seconds="63840008347.12" />
+    <Entry char="s" value="115" ticks="638400083486559664" seconds="63840008348.66" />
+    <Entry char="&#x8;" value="8" ticks="638400083636278448" seconds="63840008363.63" />
+    <Entry char="t" value="116" ticks="638400083923742649" seconds="63840008392.37" />
+    <Entry char="a" value="97" ticks="638400083997431884" seconds="63840008399.74" />
+    <Entry char="n" value="110" ticks="638400084126581451" seconds="63840008412.66" />
+    <Entry char="d" value="100" ticks="638400084273277090" seconds="63840008427.33" />
+    <Entry char=" " value="32" ticks="638400084427116391" seconds="63840008442.71" />
+    <Entry char="m" value="109" ticks="638400084489572793" seconds="63840008448.96" />
+    <Entry char="a" value="97" ticks="638400084818579342" seconds="63840008481.86" />
+    <Entry char="j" value="106" ticks="638400084903212631" seconds="63840008490.32" />
+    <Entry char="e" value="101" ticks="638400085107185484" seconds="63840008510.72" />
+    <Entry char="s" value="115" ticks="638400085207156275" seconds="63840008520.72" />
+    <Entry char="t" value="116" ticks="638400085321307966" seconds="63840008532.13" />
+    <Entry char="i" value="105" ticks="638400085380352950" seconds="63840008538.04" />
+    <Entry char="c" value="99" ticks="638400085507379411" seconds="63840008550.74" />
+    <Entry char="a" value="97" ticks="638400085657752697" seconds="63840008565.78" />
+    <Entry char="l" value="108" ticks="638400085753585302" seconds="63840008575.36" />
+    <Entry char="l" value="108" ticks="638400085827011336" seconds="63840008582.7" />
+    <Entry char="y" value="121" ticks="638400086048211682" seconds="63840008604.82" />
+    <Transcribed>mountains stand majestically</Transcribed>
+  </Trial>
+</TextTest>

@@ -9,7 +9,7 @@ class Camera(object):
     
     def open_and_run():
         gaze = GazeTracking()
-        webcam = cv2.VideoCapture(0)
+        webcam = cv2.VideoCapture(1)
 
         user32 = ctypes.windll.user32
         screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
