@@ -201,7 +201,7 @@ def check_time_looking(gaze, webcam, threshold_seconds=0.6):
 
 def gaze_tracking_thread():
     gaze = GazeTracking()  # Initialize gaze tracking
-    webcam = cv2.VideoCapture(1)  # Replace 0 with the appropriate camera index if needed
+    webcam = cv2.VideoCapture(0)  # Replace 0 with the appropriate camera index if needed
 
     check_time_looking(gaze, webcam)
 
