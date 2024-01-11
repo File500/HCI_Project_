@@ -56,7 +56,7 @@ def start_home():
 
     # Configure dark theme
     root.tk_setPalette(background='#333', foreground='#fff', activeBackground='#444', activeForeground='#fff')
-    root.geometry("875x450")
+    root.geometry("900x550")
 
     # Create a frame
     frame = tk.Frame(root, bg='#333')
