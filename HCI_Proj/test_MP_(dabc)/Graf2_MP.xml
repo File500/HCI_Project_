@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<TextTest version="2.8.4" trials="3" ticks="638406684944147724" seconds="63840668494.41" date="Friday, January 12, 2024 3:01:34 PM">
+  <Trial number="1" testing="false" entries="17">
+    <Presented>ocean waves crash</Presented>
+    <Entry char="o" value="111" ticks="638406685772639091" seconds="63840668577.26" />
+    <Entry char="c" value="99" ticks="638406685988289882" seconds="63840668598.83" />
+    <Entry char="e" value="101" ticks="638406686181997952" seconds="63840668618.2" />
+    <Entry char="a" value="97" ticks="638406686309560621" seconds="63840668630.96" />
+    <Entry char="n" value="110" ticks="638406686449441404" seconds="63840668644.94" />
+    <Entry char=" " value="32" ticks="638406686573164836" seconds="63840668657.32" />
+    <Entry char="w" value="119" ticks="638406686902382517" seconds="63840668690.24" />
+    <Entry char="a" value="97" ticks="638406687072193627" seconds="63840668707.22" />
+    <Entry char="v" value="118" ticks="638406687291320913" seconds="63840668729.13" />
+    <Entry char="e" value="101" ticks="638406687471964623" seconds="63840668747.2" />
+    <Entry char="s" value="115" ticks="638406687561136771" seconds="63840668756.11" />
+    <Entry char=" " value="32" ticks="638406687728123060" seconds="63840668772.81" />
+    <Entry char="c" value="99" ticks="638406687855614713" seconds="63840668785.56" />
+    <Entry char="r" value="114" ticks="638406688110362197" seconds="63840668811.04" />
+    <Entry char="a" value="97" ticks="638406688250280353" seconds="63840668825.03" />
+    <Entry char="s" value="115" ticks="638406688284602687" seconds="63840668828.46" />
+    <Entry char="h" value="104" ticks="638406688351798675" seconds="63840668835.18" />
+    <Transcribed>ocean waves crash</Transcribed>
+  </Trial>
+  <Trial number="2" testing="false" entries="16">
+    <Presented>time heals wounds</Presented>
+    <Entry char="t" value="116" ticks="638406688800561914" seconds="63840668880.06" />
+    <Entry char="i" value="105" ticks="638406688887979098" seconds="63840668888.8" />
+    <Entry char="m" value="109" ticks="638406689069691088" seconds="63840668906.97" />
+    <Entry char="e" value="101" ticks="638406689340445155" seconds="63840668934.04" />
+    <Entry char="h" value="104" ticks="638406689553160451" seconds="63840668955.32" />
+    <Entry char="e" value="101" ticks="638406689754030077" seconds="63840668975.4" />
+    <Entry char="a" value="97" ticks="638406689954075495" seconds="63840668995.41" />
+    <Entry char="l" value="108" ticks="638406690159838211" seconds="63840669015.98" />
+    <Entry char="s" value="115" ticks="638406690268765833" seconds="63840669026.88" />
+    <Entry char=" " value="32" ticks="638406690436324650" seconds="63840669043.63" />
+    <Entry char="w" value="119" ticks="638406690634211279" seconds="63840669063.42" />
+    <Entry char="o" value="111" ticks="638406690718698474" seconds="63840669071.87" />
+    <Entry char="u" value="117" ticks="638406690778520865" seconds="63840669077.85" />
+    <Entry char="n" value="110" ticks="638406691052625009" seconds="63840669105.26" />
+    <Entry char="d" value="100" ticks="638406691278886453" seconds="63840669127.89" />
+    <Entry char="s" value="115" ticks="638406691376036796" seconds="63840669137.6" />
+    <Transcribed>timeheals wounds</Transcribed>
+  </Trial>
+  <Trial number="3" testing="false" entries="24">
+    <Presented>rain cleanses earth</Presented>
+    <Entry char="r" value="114" ticks="638406691811930206" seconds="63840669181.19" />
+    <Entry char="a" value="97" ticks="638406691888237015" seconds="63840669188.82" />
+    <Entry char="i" value="105" ticks="638406691948701132" seconds="63840669194.87" />
+    <Entry char="n" value="110" ticks="638406692273720169" seconds="63840669227.37" />
+    <Entry char=" " value="32" ticks="638406692340676781" seconds="63840669234.07" />
+    <Entry char="c" value="99" ticks="638406692455511052" seconds="63840669245.55" />
+    <Entry char="c" value="99" ticks="638406692456085292" seconds="63840669245.61" />
+    <Entry char="c" value="99" ticks="638406692457079433" seconds="63840669245.71" />
+    <Entry char="c" value="99" ticks="638406692457824666" seconds="63840669245.78" />
+    <Entry char="l" value="108" ticks="638406692685649523" seconds="63840669268.56" />
+    <Entry char="e" value="101" ticks="638406692852072537" seconds="63840669285.21" />
+    <Entry char="a" value="97" ticks="638406693109722026" seconds="63840669310.97" />
+    <Entry char="n" value="110" ticks="638406693286330397" seconds="63840669328.63" />
+    <Entry char="s" value="115" ticks="638406693451660323" seconds="63840669345.17" />
+    <Entry char="e" value="101" ticks="638406693566787077" seconds="63840669356.68" />
+    <Entry char="s" value="115" ticks="638406693670200459" seconds="63840669367.02" />
+    <Entry char="e" value="101" ticks="638406694008132887" seconds="63840669400.81" />
+    <Entry char="a" value="97" ticks="638406694240520535" seconds="63840669424.05" />
+    <Entry char="r" value="114" ticks="638406694406050618" seconds="63840669440.61" />
+    <Entry char="t" value="116" ticks="638406694490325131" seconds="63840669449.03" />
+    <Entry char="t" value="116" ticks="638406694491049998" seconds="63840669449.1" />
+    <Entry char="t" value="116" ticks="638406694491858364" seconds="63840669449.19" />
+    <Entry char="t" value="116" ticks="638406694492418203" seconds="63840669449.24" />
+    <Entry char="h" value="104" ticks="638406694645968281" seconds="63840669464.6" />
+    <Transcribed>rain ccccleanseseartttth</Transcribed>
+  </Trial>
+</TextTest>

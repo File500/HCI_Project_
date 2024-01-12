@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<TextTest version="2.8.4" trials="3" ticks="638406695455659129" seconds="63840669545.57" date="Friday, January 12, 2024 3:19:05 PM">
+  <Trial number="1" testing="false" entries="18">
+    <Presented>ocean waves crash</Presented>
+    <Entry char="h" value="104" ticks="638406696420183301" seconds="63840669642.02" />
+    <Entry char="o" value="111" ticks="638406696548335729" seconds="63840669654.83" />
+    <Entry char="c" value="99" ticks="638406696981612619" seconds="63840669698.16" />
+    <Entry char="e" value="101" ticks="638406697134650126" seconds="63840669713.47" />
+    <Entry char="a" value="97" ticks="638406697397672749" seconds="63840669739.77" />
+    <Entry char="n" value="110" ticks="638406697720425667" seconds="63840669772.04" />
+    <Entry char=" " value="32" ticks="638406697773975550" seconds="63840669777.4" />
+    <Entry char="w" value="119" ticks="638406697981204254" seconds="63840669798.12" />
+    <Entry char="a" value="97" ticks="638406698588924407" seconds="63840669858.89" />
+    <Entry char="v" value="118" ticks="638406699073931829" seconds="63840669907.39" />
+    <Entry char="e" value="101" ticks="638406699177730597" seconds="63840669917.77" />
+    <Entry char="s" value="115" ticks="638406699451120671" seconds="63840669945.11" />
+    <Entry char=" " value="32" ticks="638406699705002750" seconds="63840669970.5" />
+    <Entry char="c" value="99" ticks="638406700158749695" seconds="63840670015.87" />
+    <Entry char="r" value="114" ticks="638406700301946694" seconds="63840670030.19" />
+    <Entry char="a" value="97" ticks="638406700689943459" seconds="63840670068.99" />
+    <Entry char="s" value="115" ticks="638406700732460564" seconds="63840670073.25" />
+    <Entry char="h" value="104" ticks="638406700941409851" seconds="63840670094.14" />
+    <Transcribed>hocean waves crash</Transcribed>
+  </Trial>
+  <Trial number="2" testing="false" entries="32">
+    <Presented>bridges connect worlds</Presented>
+    <Entry char="b" value="98" ticks="638406701542529968" seconds="63840670154.25" />
+    <Entry char="r" value="114" ticks="638406701835800776" seconds="63840670183.58" />
+    <Entry char="i" value="105" ticks="638406701996877206" seconds="63840670199.69" />
+    <Entry char="s" value="115" ticks="638406702424248644" seconds="63840670242.42" />
+    <Entry char="d" value="100" ticks="638406702486237507" seconds="63840670248.62" />
+    <Entry char="g" value="103" ticks="638406702531672946" seconds="63840670253.17" />
+    <Entry char="e" value="101" ticks="638406702680570128" seconds="63840670268.06" />
+    <Entry char="t" value="116" ticks="638406702735699601" seconds="63840670273.57" />
+    <Entry char="s" value="115" ticks="638406702932515842" seconds="63840670293.25" />
+    <Entry char="d" value="100" ticks="638406702969944767" seconds="63840670296.99" />
+    <Entry char=" " value="32" ticks="638406703031951602" seconds="63840670303.2" />
+    <Entry char="c" value="99" ticks="638406703601164319" seconds="63840670360.12" />
+    <Entry char="o" value="111" ticks="638406704215412386" seconds="63840670421.54" />
+    <Entry char="n" value="110" ticks="638406704597063327" seconds="63840670459.71" />
+    <Entry char="n" value="110" ticks="638406704638544139" seconds="63840670463.85" />
+    <Entry char="e" value="101" ticks="638406704910069309" seconds="63840670491.01" />
+    <Entry char="!" value="33" ticks="638406705129083740" seconds="63840670512.91" />
+    <Entry char="." value="46" ticks="638406705598631045" seconds="63840670559.86" />
+    <Entry char="b" value="98" ticks="638406705693645628" seconds="63840670569.36" />
+    <Entry char="c" value="99" ticks="638406705811933845" seconds="63840670581.19" />
+    <Entry char="t" value="116" ticks="638406706064893024" seconds="63840670606.49" />
+    <Entry char="t" value="116" ticks="638406706100844513" seconds="63840670610.08" />
+    <Entry char=" " value="32" ticks="638406706198630329" seconds="63840670619.86" />
+    <Entry char="t" value="116" ticks="638406706235836717" seconds="63840670623.58" />
+    <Entry char="r" value="114" ticks="638406706267445831" seconds="63840670626.74" />
+    <Entry char="w" value="119" ticks="638406706397932996" seconds="63840670639.79" />
+    <Entry char="o" value="111" ticks="638406706655203661" seconds="63840670665.52" />
+    <Entry char="r" value="114" ticks="638406706945078552" seconds="63840670694.51" />
+    <Entry char="l" value="108" ticks="638406707290318112" seconds="63840670729.03" />
+    <Entry char="k" value="107" ticks="638406707326224162" seconds="63840670732.62" />
+    <Entry char="d" value="100" ticks="638406707506273142" seconds="63840670750.63" />
+    <Entry char="s" value="115" ticks="638406707537994970" seconds="63840670753.8" />
+    <Transcribed>brisdgetsd conne!.bctt trworlkds</Transcribed>
+  </Trial>
+  <Trial number="3" testing="false" entries="33">
+    <Presented>snowflakes blanket landscapes</Presented>
+    <Entry char="s" value="115" ticks="638406707948080471" seconds="63840670794.81" />
+    <Entry char="m" value="109" ticks="638406708276673413" seconds="63840670827.67" />
+    <Entry char="o" value="111" ticks="638406708539480489" seconds="63840670853.95" />
+    <Entry char="w" value="119" ticks="638406708726285083" seconds="63840670872.63" />
+    <Entry char="r" value="114" ticks="638406708779942708" seconds="63840670877.99" />
+    <Entry char="f" value="102" ticks="638406708965632447" seconds="63840670896.56" />
+    <Entry char="g" value="103" ticks="638406708995933746" seconds="63840670899.59" />
+    <Entry char="l" value="108" ticks="638406709219373338" seconds="63840670921.94" />
+    <Entry char="a" value="97" ticks="638406709505782746" seconds="63840670950.58" />
+    <Entry char="k" value="107" ticks="638406709747811199" seconds="63840670974.78" />
+    <Entry char="r" value="114" ticks="638406709863479936" seconds="63840670986.35" />
+    <Entry char="e" value="101" ticks="638406709892385546" seconds="63840670989.24" />
+    <Entry char="s" value="115" ticks="638406710134360174" seconds="63840671013.44" />
+    <Entry char=" " value="32" ticks="638406710286798835" seconds="63840671028.68" />
+    <Entry char="b" value="98" ticks="638406710544335020" seconds="63840671054.43" />
+    <Entry char="l" value="108" ticks="638406710675212008" seconds="63840671067.52" />
+    <Entry char="a" value="97" ticks="638406710880329793" seconds="63840671088.03" />
+    <Entry char="n" value="110" ticks="638406711527981760" seconds="63840671152.8" />
+    <Entry char="k" value="107" ticks="638406711657382269" seconds="63840671165.74" />
+    <Entry char="e" value="101" ticks="638406711832517743" seconds="63840671183.25" />
+    <Entry char="t" value="116" ticks="638406711952314207" seconds="63840671195.23" />
+    <Entry char=" " value="32" ticks="638406711990930206" seconds="63840671199.09" />
+    <Entry char="l" value="108" ticks="638406712242742186" seconds="63840671224.27" />
+    <Entry char="a" value="97" ticks="638406712429499313" seconds="63840671242.95" />
+    <Entry char="n" value="110" ticks="638406712753119454" seconds="63840671275.31" />
+    <Entry char="d" value="100" ticks="638406713004920799" seconds="63840671300.49" />
+    <Entry char="s" value="115" ticks="638406713083385288" seconds="63840671308.34" />
+    <Entry char="c" value="99" ticks="638406713456306279" seconds="63840671345.63" />
+    <Entry char="s" value="115" ticks="638406713908910089" seconds="63840671390.89" />
+    <Entry char="a" value="97" ticks="638406713944807250" seconds="63840671394.48" />
+    <Entry char="p" value="112" ticks="638406714254251849" seconds="63840671425.43" />
+    <Entry char="e" value="101" ticks="638406714456616976" seconds="63840671445.66" />
+    <Entry char="s" value="115" ticks="638406714790205467" seconds="63840671479.02" />
+    <Transcribed>smowrfglakres blanket landscsapes</Transcribed>
+  </Trial>
+</TextTest>
