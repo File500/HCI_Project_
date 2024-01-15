@@ -121,7 +121,7 @@ class GazeTracking(object):
 
     def is_blinking(self):
         """Returns true if the user closes his eyes"""
-        if self.pupils_located:
+        if self.pupils_located and self.eye_left.blinking and self.eye_right.blinking: #dodano radi error corectiona koji gasi kameru
             blinking_ratio = (self.eye_left.blinking + self.eye_right.blinking) / 2
             return blinking_ratio > 4.4 #bilo je orig 3.8
 
