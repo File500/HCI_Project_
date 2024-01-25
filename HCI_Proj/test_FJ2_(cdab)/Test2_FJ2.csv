@@ -1,0 +1,5 @@
+Credit: http://books.google.com/books?id=XWSc3b_gkX8C&pg=PA47&hl=en
+Trial,Testing?,Seconds,WPM,AdjWPM,CPS,KSPS,MSD,KSPC,UncErrRate,CorErrRate,TotErrRate,Effic,Consc,UtilBand,WasteBand,|C|,|INF|,|IF|,|F|,|P|,|T|,|IS|
+1,0,475.204,0.580,0.580,0.0483,0.0483,0,1,0,0,0,1,1,1,0,24,0,0,0,24,24,24
+2,0,230.567,0.953,0.910,0.0792,0.0792,1,1,0.048,0,0.048,1,0,0.952,0.048,20,1,0,0,21,20,20
+3,0,305.221,0.970,0.830,0.0808,0.0808,4,1,0.155,0,0.155,1,0,0.845,0.155,22,4,0,0,26,26,26
