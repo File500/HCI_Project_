@@ -1,5 +1,5 @@
 Credit: http://books.google.com/books?id=XWSc3b_gkX8C&pg=PA47&hl=en
-Trial,Testing?,Seconds,WPM,AdjWPM,CPS,KSPS,MSD,KSPC,UncErrRate,CorErrRate,TotErrRate,Effic,Consc,UtilBand,WasteBand,|C|,|INF|,|IF|,|F|,|P|,|T|,|IS|
-1,0,790.321,0.305,0.291,0.0254,0.0352,1,1.35,0.045,0.15,0.195,1,0.82,0.68,0.32,21,1,5,5,22,22,30
-2,0,280.564,1.032,0.997,0.0861,0.0987,1,1.10,0.040,0.042,0.082,1,0.52,0.87,0.13,23,1,2,2,24,24,26
-3,0,340.789,0.971,0.940,0.0809,0.1023,1,1.22,0.034,0.10,0.134,1,0.78,0.80,0.20,26,1,4,4,27,27,33
+Subject,Keyboard_layout,Input_method,Trial,Testing?,Seconds,WPM,AdjWPM,CPS,KSPS,MSD,KSPC,UncErrRate,CorErrRate,TotErrRate,Effic,Consc,UtilBand,WasteBand,|C|,|INF|,|IF|,|F|,|P|,|T|,|IS|
+6,QUADRANT LAYOUT,Left-Right,1,0,790.321,0.305,0.291,0.0254,0.0352,1,1.35,0.045,0.15,0.195,1,0.82,0.68,0.32,21,1,5,5,22,22,30
+6,QUADRANT LAYOUT,Left-Right,2,0,280.564,1.032,0.997,0.0861,0.0987,1,1.10,0.040,0.042,0.082,1,0.52,0.87,0.13,23,1,2,2,24,24,26
+6,QUADRANT LAYOUT,Left-Right,3,0,340.789,0.971,0.940,0.0809,0.1023,1,1.22,0.034,0.10,0.134,1,0.78,0.80,0.20,26,1,4,4,27,27,33
