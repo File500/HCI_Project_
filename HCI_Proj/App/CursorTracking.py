@@ -6,7 +6,8 @@ import cv2
 from gaze_tracking import GazeTracking
 
 class Camera(object):
-    
+    @staticmethod
+
     def open_and_run():
         gaze = GazeTracking()
         webcam = cv2.VideoCapture(0)
@@ -87,3 +88,6 @@ class Camera(object):
     
         webcam.release()
         cv2.destroyAllWindows()
+        
+if __name__ == "__main__":
+    Camera.open_and_run()

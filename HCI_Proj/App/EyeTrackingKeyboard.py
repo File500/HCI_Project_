@@ -5,7 +5,6 @@ import time
 import threading
 from pynput.keyboard import Key, Controller
 
-
 keyboard_layouts = [
     ["1234567890"],
     ["qwertyuiop"],
@@ -72,19 +71,6 @@ def select_key(key_index):
     if highlighted_key:
         highlighted_key.configure(bg='#333', fg='#fff')  # Reset the previously highlighted key
     row, col = key_index
-    # Get total number of rows and columns
-    total_rows = len(all_keys)
-    total_cols = len(all_keys[row])
-
-    # If the next key index is beyond the last column, reset the column to 0 and increment the row index
-    if col >= total_cols:
-        col = 0
-        row += 1
-
-    # If the row index is beyond the last row, reset it to 0
-    if row >= total_rows:
-        row = 0
-        col = 0
 
     key_button = all_keys[row][col]
     key_button.configure(bg="yellow")  # Highlight the selected key
@@ -99,12 +85,26 @@ def move_left():
     elif row > 0:  # If the current key is at the start of a row and it's not the first row
         row -= 1  # Move to the previous row
         col = len(all_keys[row]) - 1  # Move to the last key of the previous row
+    elif row == 0 and col == 0:  # If the current key is the first key of the first row
+        row = len(all_keys) - 1
+        col = len(all_keys[row]) - 1
+
     select_key((row, col))
 
 def move_right():
     global current_key_index
     row, col = current_key_index
     col += 1
+
+    # If the next key index is beyond the last column, reset the column to 0 and increment the row index
+    if col >= len(all_keys[row]):
+        col = 0
+        row += 1
+
+    # If the row index is beyond the last row, reset it to 0
+    if row >= len(all_keys):
+        row = 0
+        col = 0
     select_key((row, col))
 
 def press_current_key():
@@ -116,6 +116,9 @@ def merge_keys():
     global all_keys, keyboard_frame, bottom_row_frame
     all_keys = []  # Reset the all_keys list
 
+    # Add quadrant buttons
+    all_keys.append(quadrant_buttons)
+
     if quadrant_buttons not in all_keys:
         all_keys.append(quadrant_buttons)
 
@@ -125,9 +128,6 @@ def merge_keys():
     for frame in frames:
         frame_keys = [widget for widget in frame.winfo_children() if isinstance(widget, tk.Button)]
         all_keys.append(frame_keys)
-
-    # Add quadrant buttons
-    all_keys.append(quadrant_buttons)
 
 
 def create_button(parent, text, width, height, command, font):
